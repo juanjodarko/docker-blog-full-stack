@@ -3,6 +3,8 @@ version: '3.6'
 services:
   web:
     build: angular-front/.
+    networks:
+      - frontend
     volumes:
       - ./angular-front/.:/blog/
     working_dir: /blog
@@ -13,6 +15,9 @@ services:
       - api
   api:
     build: rails-api/.
+    networks:
+      - frontend
+      - backend
     volumes:
       - ./rails-api/.:/app/
     working_dir: /app
@@ -25,3 +30,11 @@ services:
       DATABASE_URL: postgres://postgres@db
   db:
     image: postgres:10.3-alpine
+    networks:
+      - backend
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge

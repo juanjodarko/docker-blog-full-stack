@@ -1,0 +1,6 @@
+[submodule "angular-front"]
+	path = angular-front
+	url = git@github.com:juanjodarko/angular-front-blog.git
+[submodule "rails-api"]
+	path = rails-api
+	url = git@github.com:juanjodarko/rails-back-api.git

@@ -13,6 +13,7 @@ services:
       - 4200:4200
     depends_on:
       - api
+
   api:
     build: rails-api/.
     networks:
@@ -28,6 +29,7 @@ services:
       - db
     environment:
       DATABASE_URL: postgres://postgres@db
+      
   db:
     image: postgres:10.3-alpine
     networks:
